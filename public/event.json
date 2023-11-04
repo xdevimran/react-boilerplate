@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "image": "https://www.mooc.org/hs-fs/hubfs/learn-programming-career-jpg.jpeg?width=500&name=learn-programming-career-jpg.jpeg",
+    "title": "Web Development Workshop",
+    "description": "Join us for an immersive Web Development Workshop where you'll dive deep into the world of front-end and back-end web development. In this hands-on workshop, you will learn how to create stunning and responsive websites using the latest technologies such as HTML5, CSS3, JavaScript, and more. Whether you're a beginner or an experienced developer, this workshop is designed to enhance your web development skills and take your projects to the next level. Don't miss this opportunity to learn from industry experts and build impressive web applications.",
+    "price": "$99.99",
+    "date": "2023-11-15",
+    "time": "10:00 AM - 4:00 PM",
+    "location": "123 Main Street, Cityville, CA",
+    "button": "Register Now"
+  },
+  {
+    "id": "2",
+    "image": "https://www.mooc.org/hubfs/is-computer-programming-a-good-career.jpg",
+    "title": "Python Coding Bootcamp",
+    "description": "Embark on a transformative journey with our Python Coding Bootcamp. Python is a versatile and powerful programming language used in web development, data analysis, artificial intelligence, and more. In this comprehensive bootcamp, you will learn Python from scratch, master advanced topics, and build real-world applications. Whether you want to kickstart a career in programming or expand your skill set, this bootcamp is your gateway to success. Join us today and become a Python pro!",
+    "price": "$149.99",
+    "date": "2023-12-05",
+    "time": "9:30 AM - 5:30 PM",
+    "location": "456 Elm Avenue, Techtown, NY",
+    "button": "Enroll"
+  },
+  {
+    "id": "3",
+    "image": "https://images.theconversation.com/files/479421/original/file-20220816-10908-uvh62x.jpg?ixlib=rb-1.1.0&rect=0%2C8%2C1000%2C589&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip",
+    "title": "Machine Learning Masterclass",
+    "description": "Delve into the fascinating world of machine learning and artificial intelligence with our Machine Learning Masterclass. Led by industry-leading experts, this masterclass covers the fundamentals of machine learning, deep learning, and neural networks. You'll gain hands-on experience by working on real-world projects and learn to solve complex problems with data. Whether you're a data scientist, developer, or just curious about AI, this masterclass will empower you to harness the potential of AI technology.",
+    "price": "$199.99",
+    "date": "2024-01-20",
+    "time": "11:00 AM - 3:30 PM",
+    "location": "789 Oak Street, Techville, TX",
+    "button": "Book Your Spot"
+  },
+  {
+    "id": "4",
+    "image": "https://miro.medium.com/v2/resize:fit:1400/0*jlRTiwGwPurxXK2A.jpg",
+    "title": "JavaScript Fundamentals",
+    "description": "Unlock the power of interactivity on the web with our JavaScript Fundamentals course. JavaScript is the backbone of modern web development, allowing you to create dynamic and engaging user experiences. In this course, you'll start with the basics and progress to advanced topics like AJAX and front-end frameworks. Whether you're a web designer or developer, this course equips you with the skills to build responsive web applications and add that extra layer of dynamism to your websites.",
+    "price": "$79.99",
+    "date": "2024-02-10",
+    "time": "6:00 PM - 8:30 PM",
+    "location": "101 Cedar Lane, Codeville, WA",
+    "button": "Sign Up"
+  },
+  {
+    "id": "5",
+    "image": "https://www.globalspec.com/ImageRepository/LearnMore/20173/5152854505_c0453493a8_o354d29265616410d86aa818a40109650.png",
+    "title": "App Development Workshop",
+    "description": "Turn your mobile app ideas into reality with our Mobile App Development Workshop. You'll learn how to develop mobile applications for iOS and Android platforms from scratch. Our expert instructors will guide you through the entire app development lifecycle, including design, coding, testing, and deployment. Whether you're a beginner or an experienced developer, this workshop is the perfect opportunity to create your own apps and reach a global audience.",
+    "price": "$129.99",
+    "date": "2024-03-15",
+    "time": "9:00 AM - 4:00 PM",
+    "location": "234 Pine Road, Appington, FL",
+    "button": "Get Started"
+  },
+  {
+    "id": "6",
+    "image": "https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/10/hackthon-platform.jpg",
+    "title": "Data Science Hackathon",
+    "description": "Challenge your data analysis and problem-solving skills in our Data Science Hackathon. Join fellow data enthusiasts to tackle real-world data challenges, from predicting customer behavior to analyzing large datasets. You'll have access to cutting-edge tools and guidance from data science experts. Whether you're a data scientist, analyst, or just passionate about data, this hackathon is your chance to shine, network, and win exciting prizes. Join the data revolution and sign up now!",
+    "price": "$89.99",
+    "date": "2024-04-05",
+    "time": "10:00 AM - 6:00 PM",
+    "location": "345 Maple Avenue, Datatown, CA",
+    "button": "Join the Challenge"
+  }
+]

@@ -1,57 +1,93 @@
+/* eslint-disable react/prop-types */
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init({
+  duration: 800,
+  once: true,
+});
+
+import { createContext, useEffect, useState } from "react";
+import { GoogleAuthProvider } from "firebase/auth";
 import {
   createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
 } from "firebase/auth";
-import { createContext, useEffect, useState } from "react";
-import { auth } from "../config/firebase.config";
+import app from "../Firebase/FirebaseConfig";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
+const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [jsonData, setJsonData] = useState(null);
 
-  // Creat a user
-  const creeatUser = (email, password) => {
+  // Fetch JSON data function
+  const fetchJsonData = async () => {
+    try {
+      const response = await fetch("/event.json");
+      const data = await response.json();
+      setJsonData(data);
+    } catch (error) {
+      console.error("Error fetching JSON data:", error);
+    }
+  };
+
+  // Create user function
+  const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // Login a user
-  const loginUser = (email, password) => {
+  // Log in user function
+  const logIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // User status Monitoring
+  // log in user with google popup function
+  const provider = new GoogleAuthProvider();
+  const logInWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
+
+  // Log out function
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
+
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
     });
+
+    // Fetch JSON data when the component mounts
+    fetchJsonData();
+
     return () => {
       unsubscribe();
     };
-  });
+  }, []);
 
-  // logout a user
-  const logoutUser = () => {
-    setLoading(true);
-    return auth.signOut();
-  };
-
-  const values = {
+  const authInfo = {
     user,
+    createUser,
+    logIn,
+    logOut,
     loading,
-    creeatUser,
-    loginUser,
-    logoutUser,
+    jsonData,
+    logInWithGoogle,
   };
 
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

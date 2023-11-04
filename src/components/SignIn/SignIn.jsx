@@ -1,23 +1,70 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import UseAuth from "../../hooks/UseAuth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Login = () => {
-  const { loginUser, user } = UseAuth();
-  console.log(user);
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const userInfo = { email, password };
-    console.log(userInfo);
-    loginUser(email, password)
+const SignIn = () => {
+  const { logInWithGoogle } = useContext(AuthContext);
+
+  const handleGoogleLogin = () => {
+    logInWithGoogle()
       .then((result) => {
         const user = result.user;
         console.log(user);
+        // Redirect to the desired route after Google login
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error);
+        // Handle Google login error
+        console.error(error);
+      });
+  };
+  // show error
+  const showError = (message) => {
+    toast.error(message, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000, // Close after 3 seconds
+    });
+  };
+
+  // show success
+  const showSuccess = (message) => {
+    toast.success(message, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000, // Close after 3 seconds
+    });
+  };
+
+  const { logIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const email = data.get("email");
+    const password = data.get("password");
+    console.log(email, password);
+    logIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        // Show a success message
+        showSuccess("Login successful!");
+
+        // navigate after logIn
+        navigate(location?.state ? location.state : "/");
+        console.log(user);
+      })
+      .catch((error) => {
+        // Show an error message based on the error type
+        if (error.code === "auth/wrong-password") {
+          showError("Password doesn't match.");
+        } else if (error.code === "auth/user-not-found") {
+          showError("Email doesn't match.");
+        } else {
+          showError("An error occurred while logging in.");
+        }
+        console.error(error);
       });
   };
   return (
@@ -92,6 +139,7 @@ const Login = () => {
           <p className="text-center text-sm text-gray-500">Or sign in with</p>
           <div className="mt-2 flex justify-center">
             <button
+              onClick={handleGoogleLogin}
               type="button"
               className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             >
@@ -100,8 +148,9 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
 
-export default Login;
+export default SignIn;

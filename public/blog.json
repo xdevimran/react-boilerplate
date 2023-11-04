@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ytimg.com/vi/uYjRzbP5aZs/maxresdefault.jpg",
+    "title": "Introduction to Python Programming",
+    "description": "Learn the fundamentals of Python programming, including data types, control structures, and functions.",
+    "author": "John Doe",
+    "views": 1250
+  },
+  {
+    "id": 2,
+    "image": "https://miro.medium.com/v2/resize:fit:2000/1*qF8LfAwUhl57g9T0BVvVdg.jpeg",
+    "title": "Building Responsive Web Design with HTML and CSS",
+    "description": "Explore the principles of responsive web design and create mobile-friendly websites.",
+    "author": "Jane Smith",
+    "views": 980
+  },
+  {
+    "id": 3,
+    "image": "https://www.simplilearn.com/ice9/free_resources_article_thumb/Deep_Learning_Applications.jpg",
+    "title": "Machine Learning Algorithms: A Beginner's Guide",
+    "description": "An overview of popular machine learning algorithms and how they work, perfect for beginners.",
+    "author": "Michael Johnson",
+    "views": 1535
+  },
+  {
+    "id": 4,
+    "image": "https://cdn.le-vpn.com/wp-content/uploads/2015/12/cyb.jpg",
+    "title": "Cybersecurity Best Practices for Small Businesses",
+    "description": "Protect your small business from cyber threats with these essential cybersecurity practices.",
+    "author": "Sarah Wilson",
+    "views": 750
+  },
+  {
+    "id": 5,
+    "image": "https://cdn.educba.com/academy/wp-content/uploads/2020/01/future-of-artificial-intelligence.jpg",
+    "title": "The Future of Artificial Intelligence",
+    "description": "Explore the current trends and future possibilities of artificial intelligence technology.",
+    "author": "David Lee",
+    "views": 2200
+  },
+  {
+    "id": 6,
+    "image": "https://101blockchains.com/wp-content/uploads/2022/03/getting-started-with-blockchain-and-iot-course.png",
+    "title": "Getting Started with Blockchain Development",
+    "description": "Learn the basics of blockchain technology and start building your own decentralized applications.",
+    "author": "Alex Turner",
+    "views": 980
+  },
+  {
+    "id": 7,
+    "image": "https://developer.apple.com/learn/curriculum/images/screen-training-medium_2x.png",
+    "title": "Swift Programming for iOS Development",
+    "description": "A comprehensive guide to Swift programming language for iOS app development.",
+    "author": "Emily Rogers",
+    "views": 1350
+  },
+  {
+    "id": 8,
+    "image": "https://miro.medium.com/v2/resize:fit:624/1*KYDGLCDYVJRQfVOzXJMecA.png",
+    "title": "The Rise of Quantum Computing",
+    "description": "Explore the fascinating world of quantum computing and its potential impact on technology.",
+    "author": "Mark Thompson",
+    "views": 1675
+  }
+]

@@ -1,24 +1,49 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import UseAuth from "../../hooks/UseAuth";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
-  const { creeatUser } = UseAuth();
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const userInfo = { name, email, password };
-    console.log(userInfo);
-    creeatUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const { createUser } = useContext(AuthContext);
+
+  // Show error message using toast
+  const showError = (message) => {
+    toast.error(message, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000, // Close after 3 seconds
+    });
   };
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = data.get("name");
+    const email = data.get("email");
+    const password = data.get("password");
+    const photoURL = data.get("photoURL");
+    console.log(name, email, password, photoURL);
+
+    // Check password criteria
+    if (password.length < 6) {
+      showError("Password must be at least 6 characters.");
+    } else if (!/[A-Z]/.test(password)) {
+      showError("Password must contain at least one capital letter.");
+    } else if (!/[!@#$%^&*]/.test(password)) {
+      showError("Password must contain at least one special character.");
+    } else {
+      // If password meets criteria, attempt registration
+      createUser(email, password)
+        .then((result) => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center  px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
@@ -77,6 +102,22 @@ const SignUp = () => {
               placeholder="Password"
             />
           </div>
+          <div>
+            <label
+              htmlFor="photoURL"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Photo URL
+            </label>
+            <input
+              id="photoURL"
+              name="photoURL"
+              type="text"
+              required
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Photo URL"
+            />
+          </div>
 
           <div className="flex items-center justify-between">
             <div className="text-sm">
@@ -101,6 +142,7 @@ const SignUp = () => {
             </button>
           </div>
         </form>
+        <ToastContainer />
       </div>
     </div>
   );
