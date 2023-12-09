@@ -1,3 +1,9 @@
+## Live Preview
+
+[Live Demo](https://reactstaruptemp.netlify.app/)
+
+![Screenshot](https://i.ibb.co/SNLsVX4/Screenshot-6.png)
+
 # React Boilerplate Template
 
 Welcome to the **React Boilerplate Template**, a solid foundation for your React projects. This template is meticulously crafted to streamline your development process by offering a comprehensive set of essential tools and libraries commonly utilized in React development.
